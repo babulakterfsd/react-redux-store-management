@@ -1,5 +1,12 @@
-const initialState = [];
+const initialState = {
+    cart: [],
+};
 
-const cartReducer = (action, state = initialState) => state;
+const cartReducer = (state = initialState, action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
 
 export default cartReducer;

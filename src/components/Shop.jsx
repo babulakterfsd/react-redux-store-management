@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './cart/Cart';
 import Products from './product/Products';
 
 function Shop() {
@@ -12,6 +13,7 @@ function Shop() {
                 </div>
                 <div className="grid grid-cols-12 gap-6">
                     <Products />
+                    <Cart />
                 </div>
             </div>
         </section>
