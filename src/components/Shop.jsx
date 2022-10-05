@@ -2,9 +2,9 @@ import React from 'react';
 
 function Shop() {
     return (
-        <div>
-            <p>Shopping Cart</p>
-        </div>
+        <section className="shop-container">
+            <p>Main Shop Component</p>
+        </section>
     );
 }
 
