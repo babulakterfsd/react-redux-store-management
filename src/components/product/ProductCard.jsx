@@ -8,11 +8,13 @@ function ProductCard({ product }) {
                 <div className="text-lg font-semibold">
                     <p>
                         {title}
-                        <span
-                            className={quantity === 0 && 'py-1 px-3 bg-red-500 rounded text-white'}
-                        >
-                            ({quantity === 0 ? 'Stock Out' : quantity})
-                        </span>
+                        {quantity > 0 ? (
+                            <span>{quantity}</span>
+                        ) : (
+                            <span className="py-1 px-3 bg-red-500 rounded text-white">
+                                Out of Stock
+                            </span>
+                        )}
                     </p>
                     <p className="text-gray-400 text-base">TK {price}</p>
                 </div>
