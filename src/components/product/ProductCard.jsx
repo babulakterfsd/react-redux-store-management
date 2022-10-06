@@ -1,7 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addtoCart } from '../../redux/cart/cartReducer';
 
 function ProductCard({ product }) {
     const { title, price, quantity } = product;
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (selectedProduct) => {
+        dispatch(addtoCart(selectedProduct));
+    };
+
     return (
         <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
             <div className="flex justify-between px-4 items-center">
@@ -22,6 +30,7 @@ function ProductCard({ product }) {
                     <button
                         type="button"
                         className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
+                        onClick={() => handleAddToCart(product)}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

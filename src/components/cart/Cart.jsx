@@ -4,8 +4,7 @@ import CartItems from './CartItems';
 import Total from './Total';
 
 function Cart() {
-    const { cart } = useSelector((state) => state.cart);
-    const { products } = useSelector((state) => state.products);
+    const { cart, products } = useSelector((state) => state);
 
     const totalSelectedProduct = cart.reduce((prev, current) => prev + current.quantity, 0);
     const totalPrice = cart.reduce((prev, current) => prev + current.price * current.quantity, 0);
