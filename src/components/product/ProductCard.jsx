@@ -6,16 +6,16 @@ function ProductCard({ product }) {
         <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
             <div className="flex justify-between px-4 items-center">
                 <div className="text-lg font-semibold">
-                    <p>
-                        {title}
+                    <div className="flex">
+                        <p className="mr-4">{title}</p>
                         {quantity > 0 ? (
-                            <span>{quantity}</span>
+                            <span>{`(${quantity})`}</span>
                         ) : (
                             <span className="py-1 px-3 bg-red-500 rounded text-white">
                                 Out of Stock
                             </span>
                         )}
-                    </p>
+                    </div>
                     <p className="text-gray-400 text-base">TK {price}</p>
                 </div>
                 <div className="text-lg font-semibold">

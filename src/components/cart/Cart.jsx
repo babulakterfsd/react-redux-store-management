@@ -1,13 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import CartItems from './CartItems';
 import Total from './Total';
 
 function Cart() {
+    const { cart } = useSelector((state) => state.cart);
+
+    const totalSelectedProduct = cart.reduce((prev, current) => prev + current.quantity, 0);
+    const totalPrice = cart.reduce((prev, current) => prev + current.price * current.quantity, 0);
+
     return (
         <div className="w-96">
             <CartItems />
-            <Total title="Selected Product" amount={0} />
-            <Total title="Total Price" amount={0} />
+            <Total title="Selected Product" amount={totalSelectedProduct} />
+            <Total title="Total Price" amount={totalPrice} />
         </div>
     );
 }
