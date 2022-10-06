@@ -5,13 +5,18 @@ import Total from './Total';
 
 function Cart() {
     const { cart } = useSelector((state) => state.cart);
+    const { products } = useSelector((state) => state.products);
 
     const totalSelectedProduct = cart.reduce((prev, current) => prev + current.quantity, 0);
     const totalPrice = cart.reduce((prev, current) => prev + current.price * current.quantity, 0);
 
     return (
         <div className="w-96">
-            <CartItems />
+            {cart?.length > 0 &&
+                cart.map((cartProduct) => (
+                    <CartItems key={cartProduct.id} products={products} cartProduct={cartProduct} />
+                ))}
+
             <Total title="Selected Product" amount={totalSelectedProduct} />
             <Total title="Total Price" amount={totalPrice} />
         </div>
