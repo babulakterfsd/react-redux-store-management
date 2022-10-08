@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import addtoCart from '../../redux/cart/cartActionCreator';
 
 function ProductCard({ product }) {
-    const { title, price, quantity } = product;
+    const { title, price, stock } = product;
     const dispatch = useDispatch();
 
     const handleAddToCart = (selectedProduct) => {
@@ -16,8 +16,8 @@ function ProductCard({ product }) {
                 <div className="text-lg font-semibold">
                     <div className="flex">
                         <p className="mr-4">{title}</p>
-                        {quantity > 0 ? (
-                            <span>{`(${quantity})`}</span>
+                        {stock > 0 ? (
+                            <span>{`(${stock})`}</span>
                         ) : (
                             <span className="py-1 px-3 bg-red-500 rounded text-white">
                                 Out of Stock
