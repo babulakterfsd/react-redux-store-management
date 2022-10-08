@@ -1,12 +1,7 @@
 /* eslint-disable no-case-declarations */
-export const ADD_TO_CART = 'ADD_TO_CART';
+import ADD_TO_CART from './cartActionType';
 
 const initialState = [];
-
-export const addtoCart = (product) => ({
-    type: ADD_TO_CART,
-    payload: product,
-});
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
