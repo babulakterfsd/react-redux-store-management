@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addtoCart } from '../../redux/cart/cartActionCreator';
+import { addtoCart, removeFromCart } from '../../redux/cart/cartActionCreator';
 
 function CartItems({ products, cartProduct }) {
     const { id, title, price, quantity } = cartProduct;
@@ -9,6 +9,10 @@ function CartItems({ products, cartProduct }) {
 
     const handleCartProductQuantityIncrement = (selectedProduct) => {
         dispatch(addtoCart(selectedProduct));
+    };
+
+    const handleCartProductQuantityDecrement = (selectedProduct) => {
+        dispatch(removeFromCart(selectedProduct));
     };
 
     return (
@@ -22,6 +26,7 @@ function CartItems({ products, cartProduct }) {
                         <button
                             type="button"
                             className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                            onClick={() => handleCartProductQuantityDecrement(cartProduct)}
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

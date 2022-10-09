@@ -2,7 +2,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-vars */
-import { ADD_TO_CART } from '../cart/cartActionType';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../cart/cartActionType';
 import GET_ALL_PRODUCTS from './productActionType';
 
 const initialState = [
@@ -43,6 +43,19 @@ const productReducer = (state = initialState, action) => {
                 return product;
             });
             return updatedState;
+
+        case REMOVE_FROM_CART:
+            const targetProduct2 = state.find((pd) => pd.id === action.payload.id);
+            const updatedState2 = state.map((product) => {
+                if (product.id === targetProduct2.id) {
+                    return {
+                        ...targetProduct2,
+                        stock: targetProduct2.stock + 1,
+                    };
+                }
+                return product;
+            });
+            return updatedState2;
 
         default:
             return state;
