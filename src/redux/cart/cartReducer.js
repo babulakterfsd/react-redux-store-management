@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import ADD_TO_CART from './cartActionType';
+import { ADD_TO_CART } from './cartActionType';
 
 const initialState = [];
 

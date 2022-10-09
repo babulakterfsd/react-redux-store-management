@@ -2,7 +2,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-vars */
-import ADD_TO_CART from '../cart/cartActionType';
+import { ADD_TO_CART } from '../cart/cartActionType';
 import GET_ALL_PRODUCTS from './productActionType';
 
 const initialState = [
