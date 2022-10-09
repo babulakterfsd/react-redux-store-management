@@ -19,7 +19,7 @@ function ProductCard({ product }) {
                         {stock > 0 ? (
                             <span>{`(${stock})`}</span>
                         ) : (
-                            <span className="py-1 px-3 bg-red-500 rounded text-white">
+                            <span className="text-sm bg-red-200 text-red-600 px-1 flex items-center justify-center rounded-md">
                                 Out of Stock
                             </span>
                         )}

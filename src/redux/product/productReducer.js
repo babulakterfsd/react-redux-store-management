@@ -1,4 +1,9 @@
-import { GET_ALL_PRODUCTS } from './productActionType';
+/* eslint-disable no-alert */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
+import ADD_TO_CART from '../cart/cartActionType';
+import GET_ALL_PRODUCTS from './productActionType';
 
 const initialState = [
     {
@@ -26,7 +31,18 @@ const productReducer = (state = initialState, action) => {
         case GET_ALL_PRODUCTS:
             return state;
 
-        // case UPDATE_PRODUCTS:
+        case ADD_TO_CART:
+            const targetProduct = state.find((pd) => pd.id === action.payload.id);
+            const updatedState = state.map((product) => {
+                if (product.id === targetProduct.id) {
+                    return {
+                        ...targetProduct,
+                        stock: targetProduct.stock - 1,
+                    };
+                }
+                return product;
+            });
+            return updatedState;
 
         default:
             return state;
