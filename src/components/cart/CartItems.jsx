@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import addtoCart from '../../redux/cart/cartActionCreator';
+import { addtoCart } from '../../redux/cart/cartActionCreator';
 
 function CartItems({ products, cartProduct }) {
     const { id, title, price, quantity } = cartProduct;
